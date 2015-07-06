@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/">
+<ApplicationResourceFiles>
+    <App_GlobalResourceFile Location="Resources\SPManageFileTypes.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPManageFileTypes.en-GB.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPManageFileTypes.en-US.resx"/>
+    <App_GlobalResourceFile Location="Resources\SPManageFileTypes.ru-RU.resx"/>
+  </ApplicationResourceFiles>
+</Solution>

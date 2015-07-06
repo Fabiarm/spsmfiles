@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8697ECD0-11C8-4B05-9741-7B85A5A043AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SP2010.Manage.FileTypes</RootNamespace>
+    <AssemblyName>SP2010.Manage.FileTypes</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Content.cs" />
+    <Compile Include="DownloaderReceiver\DownloaderReceiver.cs" />
+    <Compile Include="DownloadManager.cs" />
+    <Compile Include="Business entities\DownloadType.cs" />
+    <Compile Include="Common\DownloadTypeEqualComparer.cs" />
+    <Compile Include="Business entities\ExtState.cs" />
+    <Compile Include="Features\SPManageFileTypeFeature\SPManageFileTypeFeature.EventReceiver.cs">
+      <DependentUpon>SPManageFileTypeFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Layouts\SP2010.Manage.FileTypes\ErrorDownload.aspx.cs">
+      <DependentUpon>ErrorDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\SP2010.Manage.FileTypes\ErrorDownload.aspx.designer.cs">
+      <DependentUpon>ErrorDownload.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\SP2010.Manage.FileTypes\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\SP2010.Manage.FileTypes\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\SPManageFileTypes.ru-RU.Designer.cs">
+      <DependentUpon>SPManageFileTypes.ru-RU.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\SPManageFileTypes.en-US.Designer.cs">
+      <DependentUpon>SPManageFileTypes.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\SPManageFileTypes.en-GB.Designer.cs">
+      <DependentUpon>SPManageFileTypes.en-GB.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\SPManageFileTypes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPManageFileTypes.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DownloadActions\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cea721e9-44c8-4835-8207-7828e0d9e71b}</SharePointProjectItemId>
+    </None>
+    <None Include="DownloaderReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e2470ff8-e87d-4305-8fa0-9137558efced}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SPManageFileTypeFeature\SPManageFileTypeFeature.feature">
+      <FeatureId>{e2b447ce-9545-42ff-9ebd-05b4735fcf4a}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5b0f9473-ada3-4e76-9843-c50ab911de27}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{54f467ff-ecab-43b2-ad06-5a02ef1bdf89}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{6d02c46e-bfc9-483a-a116-8faced1063e2}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{31baa9c9-f82d-4821-9db5-219b81ee6b1a}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\Install.ps1" />
+    <None Include="Scripts\Uninstall.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\SP2010.Manage.FileTypes\Feature.gif" />
+    <Content Include="Resources\SPManageFileTypes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPManageFileTypes.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DownloadActions\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DownloaderReceiver\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\SPManageFileTypeFeature\SPManageFileTypeFeature.Template.xml">
+      <DependentUpon>SPManageFileTypeFeature.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Layouts\SP2010.Manage.FileTypes\ErrorDownload.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\SP2010.Manage.FileTypes\Settings.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\SPManageFileTypes.en-GB.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPManageFileTypes.en-GB.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SPManageFileTypes.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPManageFileTypes.en-US.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SPManageFileTypes.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SPManageFileTypes.ru-RU.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+</Project>
