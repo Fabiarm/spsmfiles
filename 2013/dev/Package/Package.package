@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="5d95cf55-6b46-4ca7-b0c0-874a1ce4617b" 
+        solutionId="5d95cf55-6b46-4ca7-b0c0-874a1ce4617b" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="SPS.MFiles"
+        sharePointProductVersion="15.0">
+</package>
