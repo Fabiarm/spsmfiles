@@ -45,15 +45,63 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\DownloadType.cs" />
+    <Compile Include="BO\ExtState.cs" />
+    <Compile Include="Common\Content.cs" />
+    <Compile Include="Common\DownloadManager.cs" />
+    <Compile Include="Common\DownloadTypeEqualComparer.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="DownloaderReceiver\DownloaderReceiver.cs" />
+    <Compile Include="Features\SPS.MFiles.Site.Feature\SPS.MFiles.Site.EventReceiver.cs">
+      <DependentUpon>SPS.MFiles.Site.Feature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\AddNewExtension.aspx.cs">
+      <DependentUpon>AddNewExtension.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\AddNewExtension.aspx.designer.cs">
+      <DependentUpon>AddNewExtension.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\ErrorDownload.aspx.cs">
+      <DependentUpon>ErrorDownload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\ErrorDownload.aspx.designer.cs">
+      <DependentUpon>ErrorDownload.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\SPS.MFiles\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DownloadActions\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2662d887-1957-4b19-a18c-16456a8c5899}</SharePointProjectItemId>
+    </None>
+    <None Include="DownloaderReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96a5fdcd-f6fe-4766-a7e0-eb6d85048efe}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SPS.MFiles.Site.Feature\SPS.MFiles.Site.Feature.feature">
+      <FeatureId>{ffbccc66-00b9-4667-a606-b1d8cf469322}</FeatureId>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{73051462-2e61-49f7-bc3b-86255eff57da}</SharePointProjectItemId>
+    </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3208aa20-6a5e-4903-83f0-531b7fccfa4d}</SharePointProjectItemId>
+    </None>
     <None Include="SPS.MFiles.Key.snk" />
     <None Include="Package\Package.package">
       <PackageId>{5d95cf55-6b46-4ca7-b0c0-874a1ce4617b}</PackageId>
@@ -63,7 +111,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Content Include="DownloadActions\Elements.xml" />
+    <Content Include="DownloaderReceiver\Elements.xml" />
+    <Content Include="Features\SPS.MFiles.Site.Feature\SPS.MFiles.Site.Feature.Template.xml">
+      <DependentUpon>SPS.MFiles.Site.Feature.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\SPS.MFiles\AddNewExtension.aspx" />
+    <Content Include="Layouts\SPS.MFiles\ErrorDownload.aspx" />
+    <Content Include="Layouts\SPS.MFiles\Settings.aspx" />
+    <Content Include="Resources\SPS.MFiles.en-US.resx" />
+    <Content Include="Resources\SPS.MFiles.ru-RU.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

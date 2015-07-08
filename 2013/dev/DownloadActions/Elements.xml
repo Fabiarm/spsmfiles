@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="downloadSettings"
+              Location="Microsoft.SharePoint.SiteSettings"
+              GroupId="SiteCollectionAdmin"
+              RequireSiteAdministrator="TRUE"
+              Title="$Resources:SPS.MFiles,CustomAction_Title;">
+    <UrlAction Url="~sitecollection/_layouts/SPS.MFiles/Settings.aspx"/>
+  </CustomAction>
+</Elements>

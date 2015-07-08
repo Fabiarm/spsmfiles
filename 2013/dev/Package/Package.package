@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="5d95cf55-6b46-4ca7-b0c0-874a1ce4617b" 
-        solutionId="5d95cf55-6b46-4ca7-b0c0-874a1ce4617b" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="SPS.MFiles"
-        sharePointProductVersion="15.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5d95cf55-6b46-4ca7-b0c0-874a1ce4617b" solutionId="6d02c46e-bfc9-483a-a116-8faced1063e2" resetWebServer="false" sharePointProductVersion="15.0" name="SPS.MFiles" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="ffbccc66-00b9-4667-a606-b1d8cf469322" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="3208aa20-6a5e-4903-83f0-531b7fccfa4d" />
+    <projectItemReference itemId="73051462-2e61-49f7-bc3b-86255eff57da" />
+    <projectItemReference itemId="2662d887-1957-4b19-a18c-16456a8c5899" />
+  </projectItems>
 </package>
