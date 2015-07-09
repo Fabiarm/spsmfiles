@@ -4,6 +4,7 @@ using Microsoft.SharePoint.WebControls;
 using SPS.MFiles.BO;
 using System.Text;
 using SPS.MFiles.Common;
+using System.Web.UI;
 
 namespace SPS.MFiles.Layouts.SPS.MFiles
 {
@@ -19,23 +20,25 @@ namespace SPS.MFiles.Layouts.SPS.MFiles
             switch (state)
             {
                 case ExtState.Failed:
-                    AddSPNotification(hdnFailed.Value);
+                    AddSPNotification(hdnFailed.Value, false);
                     break;
                 case ExtState.Success:
-                    AddSPNotification(hdnSuccess.Value);
+                    AddSPNotification(hdnSuccess.Value, true);
                     break;
                 case ExtState.IsExists:
-                    AddSPNotification(string.Format(hdnIsExists.Value, type.Extension));
+                    AddSPNotification(string.Format(hdnIsExists.Value, type.Extension), false);
                     break;
             }
         }
-        public void AddSPNotification(string text)
+        public void AddSPNotification(string text, bool isRefresh)
         {
             if (String.IsNullOrEmpty(text) == false)
             {
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.AppendLine(string.Format("SP.UI.Notify.addNotification(\"{0}\");", text));
-                //ScriptManager.RegisterClientScriptBlock(updSettings, updSettings.GetType(), Guid.NewGuid().ToString(), stringBuilder.ToString(), true);
+                if (isRefresh == true)
+                    stringBuilder.AppendLine("SP.UI.ModalDialog.RefreshPage(SP.UI.DialogResult.OK);");
+                ScriptManager.RegisterClientScriptBlock(updSettings, updSettings.GetType(), Guid.NewGuid().ToString(), stringBuilder.ToString(), true);
             }
         }
     }

@@ -35,24 +35,6 @@ namespace SPS.MFiles.Layouts.SPS.MFiles
         protected void Page_Load(object sender, EventArgs e)
         {
         }
-        protected void btnAddDownload_Click(object sender, EventArgs e)
-        {
-            DownloadType type = new DownloadType(txtExtension.Text, Convert.ToInt32(txtSize.Text), chbActive.Checked);
-            ExtState state = DownloadManager.Instance.Add(type);
-            switch (state)
-            {
-                case ExtState.Failed:
-                    AddSPNotification(hdnFailed.Value);
-                    break;
-                case ExtState.Success:
-                    AddSPNotification(hdnSuccess.Value);
-                    Refresh();
-                    break;
-                case ExtState.IsExists:
-                    AddSPNotification(string.Format(hdnIsExists.Value, type.Extension));
-                    break;
-            }
-        }
         protected void btnSaveSettings_Click(object sender, EventArgs e)
         {
             List<DownloadType> types = new List<DownloadType>();

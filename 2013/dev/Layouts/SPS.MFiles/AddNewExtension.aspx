@@ -5,10 +5,24 @@
 <%@ Register TagPrefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddNewExtension.aspx.cs" Inherits="SPS.MFiles.Layouts.SPS.MFiles.AddNewExtension" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <SharePoint:ScriptLink ID="ScriptLink1" Name="SP.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
+    <script type="text/ecmascript" src="/_layouts/15/SP.UI.Dialog.js"></script>
+    <style type="text/css">
+        .ms-table td
+        {
+            border:0px none;
+            margin:2px;
+            width:50px;
+        }
+        .ms-input
+        {
+            float: left;
+            margin: 3px;
+        }
+    </style>
     <script type="text/javascript">
         function bytesToSize(control) {
             var bytes = control.value;
@@ -29,28 +43,14 @@
             <asp:HiddenField ID="hdnFailed" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_Failed%>" />
             <asp:HiddenField ID="hdnIsExists" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_IsExists%>" />
             <div id="contentDiv">
-                <table cellpadding="0" width="100%" cellspacing="0" border="0">
-                    <tr class="ms-viewheadertr">
-                        <th class="ms-vh2" style="width: 40px;">
+                <table cellpadding="0" width="100%" class="ms-table" cellspacing="0" border="0">
+                    <tr>
+                        <td>
                             <SharePoint:EncodedLiteral ID="ltlFileType" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_FileType%>"
                                 EncodeMethod='HtmlEncode' />
-                        </th>
-                        <th class="ms-vh2" style="width: 40px;">
-                            <SharePoint:EncodedLiteral ID="ltlMaxSize" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_MaxSize%>"
-                                EncodeMethod='HtmlEncode' />
-                        </th>
-                        <th class="ms-vh2" style="width: 50px;">&nbsp;
-                        </th>
-                        <th class="ms-vh2" style="width: 20px;">
-                            <SharePoint:EncodedLiteral ID="ltlActive" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_Active%>"
-                                EncodeMethod='HtmlEncode' />
-                        </th>
-                        <th class="ms-vh2">&nbsp;
-                        </th>
-                    </tr>
-                    <tr class="ms-tableRow">
-                        <td class="ms-formbody-new" style="width: 40px;">
-                            <asp:TextBox ID="txtExtension" runat="server" Enabled="true" Width="90%" CssClass="ms-long"
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtExtension" runat="server" Enabled="true" Width="90%" CssClass="ms-input"
                                 Text='<%# Eval("Extension") %>'></asp:TextBox>
                             <asp:RegularExpressionValidator ID="vldRegExtension" runat="server" ControlToValidate="txtExtension"
                                 EnableClientScript="true" SetFocusOnError="true" ValidationExpression="\.\w+"
@@ -58,9 +58,13 @@
                                 Display="Dynamic"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="vldReqExtension" runat="server" ControlToValidate="txtExtension"
                                 EnableClientScript="true" SetFocusOnError="true" ErrorMessage="<%$Resources:SPS.MFiles,SettingPage_Validator_ReqExtension%>"
-                                Display="Dynamic"></asp:RequiredFieldValidator>
-                        </td>
-                        <td class="ms-formbody-new" style="width: 20px;">
+                                Display="Dynamic"></asp:RequiredFieldValidator></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <SharePoint:EncodedLiteral ID="ltlMaxSize" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_MaxSize%>"
+                                EncodeMethod='HtmlEncode' /></td>
+                        <td>
                             <asp:TextBox ID="txtSize" runat="server" Width="90%" onchange="javascript:bytesToSize(this);"
                                 ToolTip="" CssClass="ms-input" Text='<%# Eval("Size") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ID="vldReqSize" runat="server" ControlToValidate="txtSize"
@@ -71,18 +75,24 @@
                                 runat="server" Type="Integer" Display="Dynamic">
                                 <SharePoint:EncodedLiteral ID="ltlValRangeSize" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_Validator_RangeSize%>"
                                     EncodeMethod='HtmlEncode' />
-                            </asp:RangeValidator>
-                        </td>
-                        <td class="ms-formbody-new" style="width: 20px;">
-                            <span id="<%=txtSize.ClientID %>_span"></span>
-                        </td>
-                        <td class="ms-formbody-new" align="center" style="width: 20px;">
-                            <asp:CheckBox ID="chbActive" runat="server" AutoPostBack="false" Text="" Checked="false" />
-                        </td>
-                        <td class="ms-formbody-new" style="width: 20px;">
+                            </asp:RangeValidator></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <SharePoint:EncodedLiteral ID="ltlActive" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_Active%>"
+                                EncodeMethod='HtmlEncode' /></td>
+                        <td>
+                            <asp:CheckBox ID="chbActive" runat="server" AutoPostBack="false" Text="" Checked="false" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td><span id="<%=txtSize.ClientID %>_span"></span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
                             <asp:Button ID="btnAddDownload" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_AddNewType%>"
-                                CssClass="ms-ButtonHeightWidth" Enabled="true" OnClick="btnAddDownload_Click" />
-                        </td>
+                                CssClass="ms-ButtonHeightWidth" Enabled="true" OnClick="btnAddDownload_Click" /></td>
                     </tr>
                 </table>
             </div>
@@ -91,9 +101,7 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-    Application Page
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    My Application Page
 </asp:Content>

@@ -13,6 +13,15 @@ namespace SPS.MFiles.Layouts.SPS.MFiles {
     public partial class AddNewExtension {
         
         /// <summary>
+        /// ScriptLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.ScriptLink ScriptLink1;
+        
+        /// <summary>
         /// updSettings control.
         /// </summary>
         /// <remarks>
@@ -58,24 +67,6 @@ namespace SPS.MFiles.Layouts.SPS.MFiles {
         protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlFileType;
         
         /// <summary>
-        /// ltlMaxSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlMaxSize;
-        
-        /// <summary>
-        /// ltlActive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlActive;
-        
-        /// <summary>
         /// txtExtension control.
         /// </summary>
         /// <remarks>
@@ -101,6 +92,15 @@ namespace SPS.MFiles.Layouts.SPS.MFiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator vldReqExtension;
+        
+        /// <summary>
+        /// ltlMaxSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlMaxSize;
         
         /// <summary>
         /// txtSize control.
@@ -137,6 +137,15 @@ namespace SPS.MFiles.Layouts.SPS.MFiles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlValRangeSize;
+        
+        /// <summary>
+        /// ltlActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.EncodedLiteral ltlActive;
         
         /// <summary>
         /// chbActive control.
