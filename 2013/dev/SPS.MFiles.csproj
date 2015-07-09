@@ -96,6 +96,9 @@
     <None Include="Features\SPS.MFiles.Site.Feature\SPS.MFiles.Site.Feature.feature">
       <FeatureId>{ffbccc66-00b9-4667-a606-b1d8cf469322}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7ce1b048-b1b6-4c4c-b558-6ffaed0d182a}</SharePointProjectItemId>
+    </None>
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{73051462-2e61-49f7-bc3b-86255eff57da}</SharePointProjectItemId>
     </None>
@@ -116,12 +119,16 @@
     <Content Include="Features\SPS.MFiles.Site.Feature\SPS.MFiles.Site.Feature.Template.xml">
       <DependentUpon>SPS.MFiles.Site.Feature.feature</DependentUpon>
     </Content>
+    <Content Include="Images\SPS.MFiles\formatmap16x16.png" />
     <Content Include="Layouts\SPS.MFiles\AddNewExtension.aspx" />
+    <Content Include="Layouts\SPS.MFiles\CSS\MFiles.css" />
     <Content Include="Layouts\SPS.MFiles\ErrorDownload.aspx" />
+    <Content Include="Layouts\SPS.MFiles\JS\MFiles.js" />
     <Content Include="Layouts\SPS.MFiles\Settings.aspx" />
     <Content Include="Resources\SPS.MFiles.en-US.resx" />
     <Content Include="Resources\SPS.MFiles.ru-RU.resx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>

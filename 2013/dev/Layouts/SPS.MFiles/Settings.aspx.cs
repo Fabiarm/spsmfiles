@@ -16,8 +16,7 @@ namespace SPS.MFiles.Layouts.SPS.MFiles
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
-            if (!Page.IsPostBack)
-                Refresh();
+            Refresh();
         }
         protected void Refresh()
         {
@@ -57,24 +56,15 @@ namespace SPS.MFiles.Layouts.SPS.MFiles
                 switch (state)
                 {
                     case ExtState.Failed:
-                        AddSPNotification(hdnFailed.Value);
+                        Helper.AddSPNotification(updSettings, hdnFailed.Value, false);
                         break;
                     case ExtState.Success:
-                        AddSPNotification(hdnSuccess.Value);
+                        Helper.AddSPNotification(updSettings, hdnSuccess.Value, false);
                         Refresh();
                         break;
                 }
             }
             Refresh();
-        }
-        public void AddSPNotification(string text)
-        {
-            if (String.IsNullOrEmpty(text) == false)
-            {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(string.Format("SP.UI.Notify.addNotification(\"{0}\");", text));
-                ScriptManager.RegisterClientScriptBlock(updSettings, updSettings.GetType(), Guid.NewGuid().ToString(), stringBuilder.ToString(), true);
-            }
         }
     }
 }

@@ -20,25 +20,14 @@ namespace SPS.MFiles.Layouts.SPS.MFiles
             switch (state)
             {
                 case ExtState.Failed:
-                    AddSPNotification(hdnFailed.Value, false);
+                    Helper.AddSPNotification(updSettings, hdnFailed.Value, false);
                     break;
                 case ExtState.Success:
-                    AddSPNotification(hdnSuccess.Value, true);
+                    Helper.AddSPNotification(updSettings, hdnSuccess.Value, true);
                     break;
                 case ExtState.IsExists:
-                    AddSPNotification(string.Format(hdnIsExists.Value, type.Extension), false);
+                    Helper.AddSPNotification(updSettings, string.Format(hdnIsExists.Value, type.Extension), false);
                     break;
-            }
-        }
-        public void AddSPNotification(string text, bool isRefresh)
-        {
-            if (String.IsNullOrEmpty(text) == false)
-            {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.AppendLine(string.Format("SP.UI.Notify.addNotification(\"{0}\");", text));
-                if (isRefresh == true)
-                    stringBuilder.AppendLine("SP.UI.ModalDialog.RefreshPage(SP.UI.DialogResult.OK);");
-                ScriptManager.RegisterClientScriptBlock(updSettings, updSettings.GetType(), Guid.NewGuid().ToString(), stringBuilder.ToString(), true);
             }
         }
     }

@@ -1,0 +1,52 @@
+﻿.ms-descriptiontext {
+    min-width: 450px;
+    width: 450px !important;
+}
+.ms-tableRow td.ms-formlabel, .ms-tableRow td.ms-formbody {
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+}
+.ms-tableRow td.ms-formbody {
+    vertical-align: top;
+    padding: 2px;
+    text-align: left;
+}
+.ms-viewheadertr th.ms-vh2-gridview {
+    background-color: transparent;
+}
+.ms-input {
+    float: left;
+    margin: 3px;
+}
+.ms-div {
+    overflow: auto;
+    border: none;
+    width: 99%;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.ms-ButtonHeightWidth {
+    float: right;
+    margin: 5px 0px 5px 5px;
+}
+.ms-table td {
+    border: 0px none;
+    margin: 2px;
+    width: 50px;
+    vertical-align: top;
+}
+.btn {
+    width: 16px; 
+    height: 16px; 
+    display: inline-block; 
+    position: relative; 
+    overflow: hidden;
+    vertical-align:middle;
+}
+.small-add-ext {
+    position:absolute;
+    left:-160px;
+    top:-200px;
+}

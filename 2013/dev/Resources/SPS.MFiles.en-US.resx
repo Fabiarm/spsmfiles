@@ -136,7 +136,7 @@
     <value>Manage uploading file size (extensions)</value>
   </data>
   <data name="SettingPage_Active" xml:space="preserve">
-    <value>Active (use)</value>
+    <value>Is active?</value>
   </data>
   <data name="SettingPage_AddNewType" xml:space="preserve">
     <value>Add new file extension</value>
@@ -178,10 +178,10 @@
     <value>Data have been saved</value>
   </data>
   <data name="SettingPage_TemplateDescription" xml:space="preserve">
-    <value>Allow manage uploading maximum size files for site collection.3</value>
+    <value>Allow manage uploading maximum size files for site collection.</value>
   </data>
   <data name="SettingPage_TemplateTitle" xml:space="preserve">
-    <value>Uploading management13</value>
+    <value>Uploading management</value>
   </data>
   <data name="SettingPage_Validator_RangeSize" xml:space="preserve">
     <value>The value should be great than 0</value>

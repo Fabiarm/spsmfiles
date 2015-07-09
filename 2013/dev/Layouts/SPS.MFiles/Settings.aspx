@@ -13,69 +13,12 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="SPS.MFiles.Layouts.SPS.MFiles.Settings" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <link rel="stylesheet" type="text/css" href="/_layouts/15/SPS.MFiles/CSS/MFiles.css" />
     <SharePoint:ScriptLink ID="ScriptLink1" Name="SP.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
     <script type="text/javascript" src="/_layouts/15/sp.init.js"></script>
     <script type="text/javascript" src="/_layouts/15/ScriptResx.ashx?culture=<SharePoint:EncodedLiteral runat='server' text='<%$Resources:wss,language_value%>' EncodeMethod='HtmlEncode' />&name=SPS.MFiles"></script>
     <script type="text/ecmascript" src="/_layouts/15/SP.UI.Dialog.js"></script>
-    <style type="text/css">
-        .ms-image {
-            border: 0px none transparent;
-        }
-
-        .ms-descriptiontext {
-            min-width: 450px;
-            width: 450px !important;
-        }
-
-        .ms-tableRow td.ms-formlabel, .ms-tableRow td.ms-formbody {
-            border-bottom: 1px solid #d8d8d8;
-            border-top: 1px solid #d8d8d8;
-            border-right: 1px solid #d8d8d8;
-        }
-
-        .ms-tableRow td.ms-formbody-new {
-            border: 0px none;
-            padding: 2px;
-        }
-
-        .ms-tableRow td.ms-formbody {
-            vertical-align: top;
-        }
-
-        .ms-viewheadertr th.ms-vh2-gridview {
-            background-color: transparent;
-        }
-
-        .ms-input {
-            float: left;
-            margin: 3px;
-        }
-
-        .ms-div {
-            overflow: auto;
-            border: none;
-            width: 99%;
-            border: none;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-
-        .ms-ButtonHeightWidth {
-            float: right;
-            margin: 5px 0px 5px 5px;
-        }
-    </style>
-    <script type="text/javascript">
-        function bytesToSize(control) {
-            var bytes = control.value;
-            var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-            if (bytes == 0) return 'n/a';
-            var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-            var divControl = document.getElementById(control.id + '_span');
-            control.title = Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-            divControl.innerHTML = Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-        }
-    </script>
+    <script type="text/javascript" src="/_layouts/15/SPS.MFiles/JS/MFiles.js"></script>
     <script type="text/ecmascript">
         function AddNewExtension() {
             SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
@@ -84,7 +27,7 @@
                     title: Res.settingPage_AddNewType,
                     allowMaximize: false,
                     autoSize: false,
-                    height: 150,
+                    height: 200,
                     width: 500,
                     showClose: true,
                     dialogReturnValueCallback: function (dialogResult) {
@@ -124,11 +67,11 @@
                                         <ItemTemplate>
                                             <asp:TextBox ID="txtExtension" runat="server" Enabled="true" Width="90%" CssClass="ms-input"
                                                 Text='<%# Eval("Extension") %>'></asp:TextBox>
-                                            <asp:RegularExpressionValidator ID="vldRegExtension" runat="server" ControlToValidate="txtExtension"
+                                            <asp:RegularExpressionValidator ID="vldRegExtension" runat="server" ControlToValidate="txtExtension" CssClass="ms-formvalidation"
                                                 EnableClientScript="true" SetFocusOnError="true" ValidationExpression="\.\w+"
                                                 ErrorMessage="<%$Resources:SPS.MFiles,SettingPage_Validator_RegExtension%>"
                                                 Display="Dynamic"></asp:RegularExpressionValidator>
-                                            <asp:RequiredFieldValidator ID="vldReqExtension" runat="server" ControlToValidate="txtExtension"
+                                            <asp:RequiredFieldValidator ID="vldReqExtension" runat="server" ControlToValidate="txtExtension" CssClass="ms-formvalidation"
                                                 EnableClientScript="true" SetFocusOnError="true" ErrorMessage="<%$Resources:SPS.MFiles,SettingPage_Validator_ReqExtension%>"
                                                 Display="Dynamic"></asp:RequiredFieldValidator>
                                         </ItemTemplate>
@@ -139,10 +82,10 @@
                                         <ItemTemplate>
                                             <asp:TextBox ID="txtSize" runat="server" Width="90%" onchange="javascript:bytesToSize(this);"
                                                 ToolTip="" CssClass="ms-input" Text='<%# Eval("Size") %>'></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="vldReqSize" runat="server" ControlToValidate="txtSize"
+                                            <asp:RequiredFieldValidator ID="vldReqSize" runat="server" ControlToValidate="txtSize" CssClass="ms-formvalidation"
                                                 EnableClientScript="true" SetFocusOnError="true" ErrorMessage="<%$Resources:SPS.MFiles,SettingPage_Validator_ReqSize%>"
                                                 Display="Dynamic"></asp:RequiredFieldValidator>
-                                            <asp:RangeValidator ControlToValidate="txtSize" ErrorMessage="vldRangeSize" ID="vldRangeSize"
+                                            <asp:RangeValidator ControlToValidate="txtSize" ErrorMessage="vldRangeSize" ID="vldRangeSize" CssClass="ms-formvalidation"
                                                 EnableClientScript="true" SetFocusOnError="true" MaximumValue="99999999" MinimumValue="1"
                                                 runat="server" Type="Integer" Display="Dynamic">
                                                 <SharePoint:EncodedLiteral ID="ltlValRangeSize" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_Validator_RangeSize%>"
@@ -168,8 +111,12 @@
                                 </EmptyDataTemplate>
                                 <FooterStyle CssClass="ms-formline" />
                             </SharePoint:SPGridView>
-                            <a id="imgDivLink" style="cursor:pointer;" onclick="javascript:AddNewExtension();">
-                                <SharePoint:EncodedLiteral ID="ltlAddNew" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_AddNewType%>" EncodeMethod='HtmlEncode' /></a>
+                            <a id="imgDivLink" style="cursor:pointer;vertical-align:middle;" onclick="javascript:AddNewExtension();">
+                                <span class="btn">
+                                    <img alt="" class="small-add-ext" src="/_layouts/15/images/SPS.MFiles/formatmap16x16.png"/>&nbsp;
+                                </span>
+                                <SharePoint:EncodedLiteral ID="ltlAddNew" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_AddNewType%>" EncodeMethod='HtmlEncode' />
+                               </a>
                             <asp:Button ID="btnSaveSettings" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_SaveSettings%>"
                                 CssClass="ms-ButtonHeightWidth" Enabled="true" OnClick="btnSaveSettings_Click"/>
                         </template_inputformcontrols>

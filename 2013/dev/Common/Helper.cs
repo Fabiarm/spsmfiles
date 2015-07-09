@@ -6,6 +6,7 @@ using Microsoft.SharePoint;
 using System.Web;
 using System.Threading;
 using Microsoft.SharePoint.Utilities;
+using System.Web.UI;
 
 namespace SPS.MFiles.Common
 {
@@ -44,6 +45,20 @@ namespace SPS.MFiles.Common
             {
                 web.Properties.Remove(spkey);
                 web.Properties.Update();
+            }
+        }
+        public static void AddSPNotification(UpdatePanel updSettings, string text, bool isRefresh)
+        {
+            if (String.IsNullOrEmpty(text) == false)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine(string.Format("SP.UI.Notify.addNotification(\"{0}\");", text));
+                if (isRefresh == true)
+                {
+                    stringBuilder.AppendLine("SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK, 1);");
+                    stringBuilder.AppendLine("window.frameElement.commitPopup();");
+                }
+                ScriptManager.RegisterClientScriptBlock(updSettings, updSettings.GetType(), Guid.NewGuid().ToString(), stringBuilder.ToString(), true);
             }
         }
     }

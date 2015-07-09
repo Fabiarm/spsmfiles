@@ -8,7 +8,6 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ErrorDownload.aspx.cs" Inherits="SPS.MFiles.Layouts.SPS.MFiles.ErrorDownload" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
@@ -19,9 +18,9 @@
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-<%= GetGlobalResourceObject("SPS.MFiles", "DownloadPage_PageTitle")%>
+    <SharePoint:EncodedLiteral ID="ltlPageTitle" runat="server" Text="<%$Resources:SPS.MFiles,DownloadPage_PageTitle%>" EncodeMethod='HtmlEncode' />
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server" >
-<%= GetGlobalResourceObject("SPS.MFiles", "DownloadPage_PageTitleInTitleArea")%>
+    <SharePoint:EncodedLiteral ID="ltlPageTitleInTitleArea" runat="server" Text="<%$Resources:SPS.MFiles,DownloadPage_PageTitleInTitleArea%>" EncodeMethod='HtmlEncode' />
 </asp:Content>
