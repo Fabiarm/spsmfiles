@@ -14,50 +14,33 @@
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <link rel="stylesheet" type="text/css" href="/_layouts/15/SPS.MFiles/CSS/MFiles.css" />
+    <script type="text/javascript" src="/_layouts/15/SPS.MFiles/JS/jquery.min.js"></script>
     <SharePoint:ScriptLink ID="ScriptLink1" Name="SP.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false" />
     <script type="text/javascript" src="/_layouts/15/sp.init.js"></script>
     <script type="text/javascript" src="/_layouts/15/ScriptResx.ashx?culture=<SharePoint:EncodedLiteral runat='server' text='<%$Resources:wss,language_value%>' EncodeMethod='HtmlEncode' />&name=SPS.MFiles"></script>
     <script type="text/ecmascript" src="/_layouts/15/SP.UI.Dialog.js"></script>
     <script type="text/javascript" src="/_layouts/15/SPS.MFiles/JS/MFiles.js"></script>
-    <script type="text/ecmascript">
-        function AddNewExtension() {
-            SP.SOD.executeFunc('sp.js', 'SP.ClientContext', function () {
-                var options = {
-                    url: SP.Utilities.Utility.getLayoutsPageUrl('SPS.MFiles/AddNewExtension.aspx'),
-                    title: Res.settingPage_AddNewType,
-                    allowMaximize: false,
-                    autoSize: false,
-                    height: 200,
-                    width: 500,
-                    showClose: true,
-                    dialogReturnValueCallback: function (dialogResult) {
-                        SP.UI.ModalDialog.RefreshPage(dialogResult)
-                    }
-                };
-                SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
-                return false;
-            });
-        }
-    </script>
+    <script type="text/ecmascript" src="/_layouts/15/SPS.MFiles/JS/MFilesEcma.js"></script>
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <SharePoint:FormDigest ID="digest" runat="server"></SharePoint:FormDigest>
-    <asp:UpdatePanel runat="server" ID="updSettings">
-        <ContentTemplate>
-            <asp:HiddenField ID="hdnSuccess" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_Success%>" />
-            <asp:HiddenField ID="hdnFailed" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_Failed%>" />
-            <asp:HiddenField ID="hdnIsExists" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_IsExists%>" />
-            <div class="ms-div">
-                <table cellpadding="0" width="100%" cellspacing="0" border="0">
-                    <wssuc:InputFormSection ID="InputFormSection1" Collapsible="false" runat="server">
-                        <template_title>
+    <div id="divTab">
+        <asp:UpdatePanel runat="server" ID="updSettings">
+            <ContentTemplate>
+                <asp:HiddenField ID="hdnSuccess" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_Success%>" />
+                <asp:HiddenField ID="hdnFailed" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_Failed%>" />
+                <asp:HiddenField ID="hdnIsExists" runat="server" Value="<%$Resources:SPS.MFiles,SettingPage_IsExists%>" />
+                <div class="ms-div">
+                    <table cellpadding="0" width="100%" cellspacing="0" border="0">
+                        <wssuc:InputFormSection ID="InputFormSection1" Collapsible="false" runat="server">
+                            <template_title>
                             <SharePoint:EncodedLiteral ID="ltlTitle" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_TemplateTitle%>" EncodeMethod='HtmlEncode' />
                         </template_title>
-                        <template_description>
+                            <template_description>
                             <SharePoint:EncodedLiteral ID="ltlTemplateDescription" Text="<%$Resources:SPS.MFiles,SettingPage_TemplateDescription %>" runat="server" EncodeMethod='HtmlEncode' />
                         </template_description>
-                        <template_inputformcontrols>
+                            <template_inputformcontrols>
                             <SharePoint:SPGridView runat="server" CellPadding="0" CellSpacing="0" ID="spgvSettings"
                                 AlternatingRowStyle-CssClass="ms-tableRow" OnRowDataBound="spgvSettings_RowDataBound"
                                 RowStyle-CssClass="ms-tableRow" AutoGenerateColumns="false">
@@ -120,11 +103,12 @@
                             <asp:Button ID="btnSaveSettings" runat="server" Text="<%$Resources:SPS.MFiles,SettingPage_SaveSettings%>"
                                 CssClass="ms-ButtonHeightWidth" Enabled="true" OnClick="btnSaveSettings_Click"/>
                         </template_inputformcontrols>
-                    </wssuc:InputFormSection>
-                </table>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+                        </wssuc:InputFormSection>
+                    </table>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

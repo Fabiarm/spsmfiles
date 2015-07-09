@@ -123,6 +123,8 @@
     <Content Include="Layouts\SPS.MFiles\AddNewExtension.aspx" />
     <Content Include="Layouts\SPS.MFiles\CSS\MFiles.css" />
     <Content Include="Layouts\SPS.MFiles\ErrorDownload.aspx" />
+    <Content Include="Layouts\SPS.MFiles\JS\MFilesEcma.js" />
+    <Content Include="Layouts\SPS.MFiles\JS\jquery.min.js" />
     <Content Include="Layouts\SPS.MFiles\JS\MFiles.js" />
     <Content Include="Layouts\SPS.MFiles\Settings.aspx" />
     <Content Include="Resources\SPS.MFiles.en-US.resx" />
