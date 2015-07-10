@@ -130,7 +130,7 @@
     <value>Upload file</value>
   </data>
   <data name="Feature_Description" xml:space="preserve">
-    <value>The feature allows to manage uploading  file size for individual extensions on sharepoint web site.  Created by Smart84 (http://www.codeplex.com/site/users/view/smart84)</value>
+    <value>The feature allows to manage uploading  file size for individual extensions on sharepoint web site.</value>
   </data>
   <data name="Feature_Name" xml:space="preserve">
     <value>Manage uploading file size (extensions)</value>

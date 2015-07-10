@@ -130,7 +130,7 @@
     <value>Загрузка файла</value>
   </data>
   <data name="Feature_Description" xml:space="preserve">
-    <value>Позволяет управлять загрузкой файлов для SharePoint сайта.  Разработал Smart84 (http://www.codeplex.com/site/users/view/smart84)</value>
+    <value>Позволяет управлять загрузкой файлов для SharePoint сайта. </value>
   </data>
   <data name="Feature_Name" xml:space="preserve">
     <value>Управление загрузкой файлов с использованием расширений файлов</value>
